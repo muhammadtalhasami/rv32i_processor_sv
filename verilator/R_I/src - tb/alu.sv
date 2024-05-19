@@ -32,7 +32,7 @@ module alu #(parameter DATA_WIDTH = 32)
         res_o = (op_i==4'b0000)?a_i + b_i : // add
                 (op_i==4'b0001) ? a_i - b_i  :// sub
                 (op_i==4'b0010) ? a_i << b_i : // shift left logical 
-                (op_i==4'b0011 & ($signed(a_i) < $signed(b_i))) ? 1 :
+        (op_i==4'b0011 & ($signed(a_i) < $signed(b_i))) ? 1 : // set less then signed
                 (op_i==4'b0100 & (a_i < b_i)) ? 1 :  //set less then unsigned 4        
                 (op_i==4'b0101) ? a_i ^ b_i  : //xor
                 (op_i==4'b0110) ? a_i >> b_i : //shift right logical
