@@ -29,6 +29,7 @@ parameter ALU_CONTROL=4
 (
     input  clk,
     input  rst,
+    input  DM_valid,
     input  [INSTRUCTION-1:0] instruction,
     input  [DATA_WIDTH-1:0] rwd_data_out,
     
@@ -64,6 +65,7 @@ control_unit u_cu0
 .fun3(instruction[14:12]),
 .fun7(instruction[30]),
 .reg_write_o(reg_write),
+.DM_valid(DM_valid),
 .operand_b_o(operand_b),
 .mem_en(mem_en),
 .imm_sel(imm_sel),

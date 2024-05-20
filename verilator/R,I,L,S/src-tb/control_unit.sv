@@ -28,6 +28,7 @@ parameter ALU_CONTROL=4
 )
 (
     input logic fun7,
+    input logic DM_valid,
     input logic [FUNCTION3-1 : 0] fun3,
     input logic [OPCODE-1 : 0] opcode_i,
 
@@ -50,8 +51,15 @@ parameter ALU_CONTROL=4
     always_comb begin
       r_type    = (opcode_i == 7'b0110011) ? 1 : 0;
       i_type    = (opcode_i == 7'b0010011) ? 1 : 0;      
-      store     = (opcode_i == 7'b0100011) ? 1 : 0; 
-      load      = (opcode_i == 7'b0000011) ? 1 : 0; 
+      store     = (opcode_i == 7'b0100011) ? 1 : 0;
+    if(opcode_i==7'b0000011)begin
+                if (DM_valid) begin 
+                    load = 1'b0;
+                end
+                else begin
+                    load = 1'b1;
+                end
+            end
     end
     /////////////////////////////////////////////////////////////////////////////////
     //------------------------------CONTROL DECODER----------------------------------
@@ -93,16 +101,16 @@ parameter ALU_CONTROL=4
           else if (load) begin
             imm_sel = 3'b000; //i_type selection
             mem_to_reg = 2'b01;
-           alu_control =  (fun3==3'b000) ? 4'b0000 : 
-                          (fun3==3'b001) ? 4'b0010 : 
-                          (fun3==3'b010) ? 4'b0011 : 
-                          (fun3==3'b100) ? 4'b0101 : 
-                          (fun3==3'b101) ? 4'b0110 : 
-                          (fun3==3'b110) ? 4'b0110 : 0;
+            alu_control =  (fun3==3'b000) ?4'b0000 : 
+                          (fun3==3'b001) ? 4'b0000 : 
+                          (fun3==3'b010) ? 4'b0000 : 
+                          (fun3==3'b100) ? 4'b0000 : 
+                          (fun3==3'b101) ? 4'b0000 : 
+                          (fun3==3'b110) ? 4'b0000 : 0;
         end
     end
 
-    assign reg_write_o = (r_type | i_type | load ) ? 1 :0;  //reg write signal for register file
+    assign reg_write_o = (r_type | i_type | load |DM_valid) ? 1 :0;  //reg write signal for register file
     assign operand_b_o = (i_type | load   | store) ? 1 : 0 ;        //operand b signal for second input of alu
     assign Load   = load;          //load
     assign Store  = store;         //store

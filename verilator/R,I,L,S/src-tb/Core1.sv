@@ -35,7 +35,9 @@ Fetch_stage u_Fetch_stage0
 (
 .clk(clk),
 .rst(rst),
-.address_in(0),   
+.address_in(0),
+.DM_valid(DM_valid),
+.load(Load),
 .pc_addr_out(address_out),
 /* verilator lint_off UNUSED */
 .pre_pc(pre_pc),
@@ -50,6 +52,7 @@ Decode_stage u_Decode_stage0
 (
 .clk(clk),
 .rst(rst),
+.DM_valid(DM_valid),
 .instruction(instruction_out),
 .rwd_data_out(rd_wb_data),
 .Load(Load),

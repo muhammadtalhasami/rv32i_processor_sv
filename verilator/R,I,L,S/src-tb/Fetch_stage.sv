@@ -29,6 +29,8 @@ parameter ADDRESS=32
 (
    input  clk,
    input  rst,
+   input                           load, 
+   input                           DM_valid, 
 /* verilator lint_off UNUSED */
    input  [ADDRESS-1:0] address_in,
    input  [INSTRUCTION-1:0] instruction_fetch,
@@ -45,6 +47,8 @@ pc u_pc0
 (
     .clk(clk),
     .rst(rst),
+    .load(load), 
+    .DM_valid(DM_valid), 
 /* verilator lint_off UNUSED */
     .address_in(0),
     .pre_pc(pre_pc),
@@ -55,9 +59,16 @@ pc u_pc0
 
     always_comb begin
         instruction = instruction_fetch ;
-        mask = 4'b1111;
-        request = 1;
-        we_re   = 0;
+        if ((load && !DM_valid)) begin
+            mask = 4'b1111; 
+            we_re = 1'b0;
+            request = 1'b0;
+        end
+        else begin
+            mask = 4'b1111; 
+            we_re = 1'b0;
+            request = 1'b1;
+        end
     end
 
 endmodule
