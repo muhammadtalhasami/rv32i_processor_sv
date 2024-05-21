@@ -39,6 +39,6 @@ module alu #(parameter DATA_WIDTH = 32)
                 (op_i==4'b0111) ? a_i >>> b_i: //shift right arithematic
                 (op_i==4'b1000) ? a_i | b_i  : //or
                 (op_i==4'b1001) ? a_i & b_i  :  //and
-                (op_i==4'b1111) ? b_i  : 0; //and              
+        (op_i==4'b1111) ? b_i  : 0; //lui              
             end
 endmodule
