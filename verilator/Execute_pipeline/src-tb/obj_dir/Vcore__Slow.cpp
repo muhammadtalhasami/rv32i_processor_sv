@@ -134,8 +134,15 @@ void Vcore::_settle__TOP__3(Vcore__Syms* __restrict vlSymsp) {
                                                  >> 0x14U) 
                                                 - (IData)(1U)))]
                                             : 0U) : 0U);
-    vlTOPp->core__DOT__data_mem_request = ((IData)(vlTOPp->core__DOT__u_Core10__DOT__u_Execute_pipe0__DOT__load) 
-                                           | (IData)(vlTOPp->core__DOT__u_Core10__DOT__u_Execute_pipe0__DOT__store));
+    vlTOPp->core__DOT__data_mem_request = ((~ ((~ (IData)(vlTOPp->core__DOT__valid)) 
+                                               & ((~ (IData)(vlTOPp->core__DOT__u_Core10__DOT__u_Execute_pipe0__DOT__load)) 
+                                                  & (~ (IData)(vlTOPp->core__DOT__u_Core10__DOT__u_Execute_pipe0__DOT__store))))) 
+                                           & ((IData)(vlTOPp->core__DOT__u_Core10__DOT__u_Execute_pipe0__DOT__load) 
+                                              | (IData)(vlTOPp->core__DOT__u_Core10__DOT__u_Execute_pipe0__DOT__store)));
+    vlTOPp->core__DOT__data_mem_we_re = ((~ ((~ (IData)(vlTOPp->core__DOT__valid)) 
+                                             & ((~ (IData)(vlTOPp->core__DOT__u_Core10__DOT__u_Execute_pipe0__DOT__load)) 
+                                                & (~ (IData)(vlTOPp->core__DOT__u_Core10__DOT__u_Execute_pipe0__DOT__store))))) 
+                                         & (IData)(vlTOPp->core__DOT__u_Core10__DOT__u_Execute_pipe0__DOT__store));
     if (((IData)(vlTOPp->core__DOT__u_Core10__DOT__u_Execute_pipe0__DOT__load) 
          | (IData)(vlTOPp->core__DOT__data_mem_valid))) {
         if ((0U == (7U & (vlTOPp->core__DOT__u_Core10__DOT__u_Execute_pipe0__DOT__instruction 
@@ -705,6 +712,7 @@ void Vcore::_ctor_var_reset() {
     core__DOT__valid = VL_RAND_RESET_I(1);
     core__DOT__data_mem_valid = VL_RAND_RESET_I(1);
     core__DOT__data_mem_request = VL_RAND_RESET_I(1);
+    core__DOT__data_mem_we_re = VL_RAND_RESET_I(1);
     core__DOT__data_mem_mask = VL_RAND_RESET_I(4);
     { int __Vi0=0; for (; __Vi0<256; ++__Vi0) {
             core__DOT__u_instruc_mem_top0__DOT__u_memory__DOT__mem[__Vi0] = VL_RAND_RESET_I(32);

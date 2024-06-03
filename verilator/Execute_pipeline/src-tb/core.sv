@@ -60,7 +60,7 @@ Core1 u_Core10(
 .instruction_mem_request(instruction_mem_request),
 .instruction_mem_we_re(instruction_mem_we_re),
 .instruction_mem_mask(instruction_mem_mask),
-// .instruction_mem_valid(valid),
+.instruction_mem_valid(valid),
 .data_mem_request(data_mem_request),
 .data_mem_we_re(data_mem_we_re),
 .data_mem_mask(data_mem_mask),

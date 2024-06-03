@@ -26,7 +26,7 @@ module Memory_stage #(
         input logic load,
         input logic store,
         input logic mem_en,
-        // input logic valid,
+        input logic valid,
         input logic data_valid,
         input logic [DataWidth-1 : 0] operand_b,
         /* verilator lint_off UNUSED */
@@ -56,7 +56,13 @@ module Memory_stage #(
     );
 
     always_comb begin
+        if(~valid & (~load & ~store))begin
+            request = 0;
+            we_re = 0;
+        end
+        else begin
             request = load | store ;
             we_re = store ;
+        end
     end
 endmodule

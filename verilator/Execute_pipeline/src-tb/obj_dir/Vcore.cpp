@@ -87,31 +87,31 @@ VL_INLINE_OPT void Vcore::_sequent__TOP__1(Vcore__Syms* __restrict vlSymsp) {
     CData/*7:0*/ __Vdlyvval__core__DOT__u_data_memory0__DOT__u_memory__DOT__mem__v3;
     CData/*0:0*/ __Vdlyvset__core__DOT__u_data_memory0__DOT__u_memory__DOT__mem__v3;
     // Body
-    vlTOPp->__Vdly__core__DOT__u_Core10__DOT__u_Fetch_pipe0__DOT__flush_pipeline2 
-        = vlTOPp->core__DOT__u_Core10__DOT__u_Fetch_pipe0__DOT__flush_pipeline2;
-    vlTOPp->__Vdly__core__DOT__u_Core10__DOT__u_Fetch_pipe0__DOT__flush_pipeline 
-        = vlTOPp->core__DOT__u_Core10__DOT__u_Fetch_pipe0__DOT__flush_pipeline;
     __Vdlyvset__core__DOT__u_data_memory0__DOT__u_memory__DOT__mem__v0 = 0U;
     __Vdlyvset__core__DOT__u_data_memory0__DOT__u_memory__DOT__mem__v1 = 0U;
     __Vdlyvset__core__DOT__u_data_memory0__DOT__u_memory__DOT__mem__v2 = 0U;
     __Vdlyvset__core__DOT__u_data_memory0__DOT__u_memory__DOT__mem__v3 = 0U;
+    vlTOPp->__Vdly__core__DOT__u_Core10__DOT__u_Fetch_pipe0__DOT__flush_pipeline2 
+        = vlTOPp->core__DOT__u_Core10__DOT__u_Fetch_pipe0__DOT__flush_pipeline2;
+    vlTOPp->__Vdly__core__DOT__u_Core10__DOT__u_Fetch_pipe0__DOT__flush_pipeline 
+        = vlTOPp->core__DOT__u_Core10__DOT__u_Fetch_pipe0__DOT__flush_pipeline;
     vlTOPp->core__DOT__u_Core10__DOT__u_Decode_pipe0__DOT__alu_con 
         = vlTOPp->core__DOT__u_Core10__DOT__alu_control;
-    vlTOPp->core__DOT__u_Core10__DOT__u_Execute_pipe0__DOT__me 
-        = vlTOPp->core__DOT__u_Core10__DOT__u_Decode_pipe0__DOT__men;
     if ((1U & (~ ((IData)(vlTOPp->core__DOT__data_mem_request) 
-                  & (IData)(vlTOPp->core__DOT__u_Core10__DOT__u_Execute_pipe0__DOT__store))))) {
+                  & (IData)(vlTOPp->core__DOT__data_mem_we_re))))) {
         if (((IData)(vlTOPp->core__DOT__data_mem_request) 
-             & (~ (IData)(vlTOPp->core__DOT__u_Core10__DOT__u_Execute_pipe0__DOT__store)))) {
+             & (~ (IData)(vlTOPp->core__DOT__data_mem_we_re)))) {
             vlTOPp->core__DOT__DM_load_data_in = vlTOPp->core__DOT__u_data_memory0__DOT__u_memory__DOT__mem
                 [(0xffU & (vlTOPp->core__DOT__u_Core10__DOT__u_Execute_pipe0__DOT__alu_result 
                            >> 2U))];
         }
     }
-    vlTOPp->core__DOT__u_Core10__DOT__u_Execute_pipe0__DOT__pre_address 
-        = vlTOPp->core__DOT__u_Core10__DOT__u_Decode_pipe0__DOT__pre_address;
+    vlTOPp->core__DOT__u_Core10__DOT__u_Execute_pipe0__DOT__store 
+        = vlTOPp->core__DOT__u_Core10__DOT__u_Decode_pipe0__DOT__s;
+    vlTOPp->core__DOT__u_Core10__DOT__u_Execute_pipe0__DOT__me 
+        = vlTOPp->core__DOT__u_Core10__DOT__u_Decode_pipe0__DOT__men;
     if (((IData)(vlTOPp->core__DOT__data_mem_request) 
-         & (IData)(vlTOPp->core__DOT__u_Core10__DOT__u_Execute_pipe0__DOT__store))) {
+         & (IData)(vlTOPp->core__DOT__data_mem_we_re))) {
         if ((1U & (IData)(vlTOPp->core__DOT__data_mem_mask))) {
             __Vdlyvval__core__DOT__u_data_memory0__DOT__u_memory__DOT__mem__v0 
                 = (0xffU & vlTOPp->core__DOT__DM_store_data_out);
@@ -152,6 +152,8 @@ VL_INLINE_OPT void Vcore::_sequent__TOP__1(Vcore__Syms* __restrict vlSymsp) {
                             >> 2U));
         }
     }
+    vlTOPp->core__DOT__u_Core10__DOT__u_Execute_pipe0__DOT__pre_address 
+        = vlTOPp->core__DOT__u_Core10__DOT__u_Decode_pipe0__DOT__pre_address;
     vlTOPp->core__DOT__u_Core10__DOT__u_Decode_pipe0__DOT__r1 
         = (0x1fU & (vlTOPp->core__DOT__u_Core10__DOT__u_Fetch_pipe0__DOT__instruc 
                     >> 0xfU));
@@ -198,10 +200,10 @@ VL_INLINE_OPT void Vcore::_sequent__TOP__1(Vcore__Syms* __restrict vlSymsp) {
                | ((IData)(__Vdlyvval__core__DOT__u_data_memory0__DOT__u_memory__DOT__mem__v3) 
                   << (IData)(__Vdlyvlsb__core__DOT__u_data_memory0__DOT__u_memory__DOT__mem__v3)));
     }
+    vlTOPp->core__DOT__u_Core10__DOT__u_Decode_pipe0__DOT__s 
+        = vlTOPp->core__DOT__u_Core10__DOT__u_Decode_stage0__DOT__u_cu0__DOT__store;
     vlTOPp->core__DOT__u_Core10__DOT__u_Decode_pipe0__DOT__men 
         = vlTOPp->core__DOT__u_Core10__DOT__u_Decode_stage0__DOT__u_cu0__DOT__store;
-    vlTOPp->core__DOT__u_Core10__DOT__u_Execute_pipe0__DOT__store 
-        = vlTOPp->core__DOT__u_Core10__DOT__u_Decode_pipe0__DOT__s;
     vlTOPp->core__DOT__u_Core10__DOT__u_Decode_pipe0__DOT__opb_mux 
         = ((((((((((IData)(vlTOPp->core__DOT__u_Core10__DOT__u_Decode_stage0__DOT__u_cu0__DOT__i_type) 
                    | (IData)(vlTOPp->core__DOT__u_Core10__DOT__u_Decode_stage0__DOT__u_cu0__DOT__load)) 
@@ -213,8 +215,6 @@ VL_INLINE_OPT void Vcore::_sequent__TOP__1(Vcore__Syms* __restrict vlSymsp) {
              | (IData)(vlTOPp->core__DOT__u_Core10__DOT__u_Decode_stage0__DOT__u_cu0__DOT__auipc))
              ? 1U : 0U) ? vlTOPp->core__DOT__u_Core10__DOT__u_Decode_stage0__DOT__imm_mux_out
             : vlTOPp->core__DOT__u_Core10__DOT__u_Decode_stage0__DOT__op_b);
-    vlTOPp->core__DOT__u_Core10__DOT__u_Decode_pipe0__DOT__s 
-        = vlTOPp->core__DOT__u_Core10__DOT__u_Decode_stage0__DOT__u_cu0__DOT__store;
 }
 
 VL_INLINE_OPT void Vcore::_sequent__TOP__2(Vcore__Syms* __restrict vlSymsp) {
@@ -528,8 +528,6 @@ VL_INLINE_OPT void Vcore::_sequent__TOP__7(Vcore__Syms* __restrict vlSymsp) {
     // Body
     vlTOPp->core__DOT__u_Core10__DOT__u_Execute_pipe0__DOT__load 
         = vlTOPp->core__DOT__u_Core10__DOT__u_Decode_pipe0__DOT__l;
-    vlTOPp->core__DOT__data_mem_request = ((IData)(vlTOPp->core__DOT__u_Core10__DOT__u_Execute_pipe0__DOT__load) 
-                                           | (IData)(vlTOPp->core__DOT__u_Core10__DOT__u_Execute_pipe0__DOT__store));
     vlTOPp->core__DOT__u_Core10__DOT__u_Decode_pipe0__DOT__l 
         = vlTOPp->core__DOT__u_Core10__DOT__u_Decode_stage0__DOT__u_cu0__DOT__load;
     if ((1U & ((IData)(vlTOPp->core__DOT__u_Core10__DOT__u_Decode_pipe0__DOT__l) 
@@ -615,6 +613,15 @@ VL_INLINE_OPT void Vcore::_sequent__TOP__8(Vcore__Syms* __restrict vlSymsp) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vcore::_sequent__TOP__8\n"); );
     Vcore* const __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
     // Body
+    vlTOPp->core__DOT__data_mem_request = ((~ ((~ (IData)(vlTOPp->core__DOT__valid)) 
+                                               & ((~ (IData)(vlTOPp->core__DOT__u_Core10__DOT__u_Execute_pipe0__DOT__load)) 
+                                                  & (~ (IData)(vlTOPp->core__DOT__u_Core10__DOT__u_Execute_pipe0__DOT__store))))) 
+                                           & ((IData)(vlTOPp->core__DOT__u_Core10__DOT__u_Execute_pipe0__DOT__load) 
+                                              | (IData)(vlTOPp->core__DOT__u_Core10__DOT__u_Execute_pipe0__DOT__store)));
+    vlTOPp->core__DOT__data_mem_we_re = ((~ ((~ (IData)(vlTOPp->core__DOT__valid)) 
+                                             & ((~ (IData)(vlTOPp->core__DOT__u_Core10__DOT__u_Execute_pipe0__DOT__load)) 
+                                                & (~ (IData)(vlTOPp->core__DOT__u_Core10__DOT__u_Execute_pipe0__DOT__store))))) 
+                                         & (IData)(vlTOPp->core__DOT__u_Core10__DOT__u_Execute_pipe0__DOT__store));
     if (((IData)(vlTOPp->core__DOT__u_Core10__DOT__u_Execute_pipe0__DOT__load) 
          | (IData)(vlTOPp->core__DOT__data_mem_valid))) {
         if ((0U == (7U & (vlTOPp->core__DOT__u_Core10__DOT__u_Execute_pipe0__DOT__instruction 

@@ -8,7 +8,7 @@ parameter ALU_CONTROL=4
 input                                   clk,
 input                                   rst, 
 input           [INSTRUCTION-1:0]       instruction,
-// input                                   instruction_mem_valid,
+input                                   instruction_mem_valid,
 input           [31:0]                  DM_load_data_in,
 input                                   DM_valid,
 
@@ -198,7 +198,7 @@ Memory_stage u_memorystage0
         .wrap_load_in(DM_load_data_in),
         .mask(data_mem_mask),
         .data_valid(DM_valid),
-        // .valid(instruction_mem_valid),
+        .valid(instruction_mem_valid),
         .we_re(data_mem_we_re),
         .request(data_mem_request),
         .store_data_out(DM_store_data_out),

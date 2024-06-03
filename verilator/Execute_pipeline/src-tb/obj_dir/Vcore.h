@@ -36,6 +36,7 @@ VL_MODULE(Vcore) {
         CData/*0:0*/ core__DOT__valid;
         CData/*0:0*/ core__DOT__data_mem_valid;
         CData/*0:0*/ core__DOT__data_mem_request;
+        CData/*0:0*/ core__DOT__data_mem_we_re;
         CData/*3:0*/ core__DOT__data_mem_mask;
         CData/*3:0*/ core__DOT__u_Core10__DOT__alu_control;
         CData/*0:0*/ core__DOT__u_Core10__DOT__branch_result;
@@ -95,9 +96,9 @@ VL_MODULE(Vcore) {
         IData/*31:0*/ core__DOT__u_Core10__DOT__u_Execute_pipe0__DOT__pre_address;
         IData/*31:0*/ core__DOT__u_Core10__DOT__u_Execute_pipe0__DOT__instruction;
         IData/*31:0*/ core__DOT__u_Core10__DOT__u_Execute_pipe0__DOT__opb_data;
-        IData/*31:0*/ core__DOT__u_instruc_mem_top0__DOT__u_memory__DOT__mem[256];
     };
     struct {
+        IData/*31:0*/ core__DOT__u_instruc_mem_top0__DOT__u_memory__DOT__mem[256];
         IData/*31:0*/ core__DOT__u_Core10__DOT__u_Decode_stage0__DOT__u_registerfile0__DOT__register[31];
         IData/*31:0*/ core__DOT__u_data_memory0__DOT__u_memory__DOT__mem[256];
     };
